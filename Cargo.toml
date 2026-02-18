@@ -13,7 +13,7 @@ jwalk = "0.8"
 sysinfo = "0.30"
 human_bytes = "0.4"
 anyhow = "1.0"
-thiserror = "1.0"
+thiserror = "2.0"
 tokio = { version = "1.37", features = ["full"] }
 log = "0.4"
 env_logger = "0.11"
