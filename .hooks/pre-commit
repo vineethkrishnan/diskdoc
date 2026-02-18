@@ -1,0 +1,29 @@
+#!/bin/bash
+set -e
+
+# --- DiskDoctor Pre-commit Hook ---
+
+# Source common profiles to ensure cargo is in PATH
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+export PATH="$PATH:/usr/local/bin:/opt/homebrew/bin"
+
+if ! command -v cargo &> /dev/null; then
+    echo "❌ Error: cargo command not found. Please ensure Rust is installed and in your PATH."
+    exit 1
+fi
+
+echo "--- 🛠️ Running Pre-commit Checks ---"
+
+# 1. Formatting
+echo "🎨 Checking formatting (cargo fmt)..."
+cargo fmt --all -- --check
+
+# 2. Linting
+echo "🔍 Running linter (clippy)..."
+cargo clippy --all-targets --all-features -- -D warnings
+
+# 3. Testing
+echo "🧪 Running tests (cargo test)..."
+cargo test
+
+echo "✅ All checks passed! Proceeding with commit."
