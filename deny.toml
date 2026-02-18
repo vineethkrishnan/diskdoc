@@ -1,8 +1,7 @@
 [advisories]
-vulnerability = "deny"
-unmaintained = "warn"
-notice = "warn"
-ignore = []
+ignore = [
+    "RUSTSEC-2024-0436", # paste is unmaintained; transitive dep from ratatui with no upgrade path
+]
 
 [bans]
 multiple-versions = "warn"
@@ -13,15 +12,15 @@ skip = []
 skip-tree = []
 
 [licenses]
-unlicensed = "deny"
-copyleft = "deny"
-default = "deny"
 allow = [
     "MIT",
     "Apache-2.0",
+    "BSD-2-Clause",
     "BSD-3-Clause",
     "ISC",
     "CC0-1.0",
+    "Zlib",
+    "Unicode-3.0",
     "Unicode-DFS-2016",
 ]
 confidence-threshold = 0.8
