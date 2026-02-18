@@ -10,7 +10,7 @@ ratatui = "0.26"
 crossterm = "0.27"
 clap = { version = "4.5", features = ["derive"] }
 jwalk = "0.8"
-sysinfo = "0.30"
+sysinfo = "0.38"
 human_bytes = "0.4"
 anyhow = "1.0"
 thiserror = "1.0"
